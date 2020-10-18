@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @Describe:
  * 1、根据倍数和前缀规则(相同长度位置字符相等)判断, s[i]=s[i-n']
  * 2、字符串匹配两个相加
- * 3、KMP算法,判断 kmp(s+s,s)
+ * 3、KMP算法,判断 kmp
  */
 public class Repeated_Substring_Pattern_459 {
     public boolean repeatedSubstringPattern(String s) {

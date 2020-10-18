@@ -10,11 +10,11 @@ public class Longest_Common_Prefix_14 {
     public String longestCommonPrefixByHorizontal(String[] strs) {
             if(strs.length==0)
                 return "";
-            //记下第一个字符串
+            // 记下第一个字符串
             String prefix=strs[0];
-            //剩下的和第一个逐一比较
+            // 剩下的和第一个逐一比较
             for(int i=1;i<strs.length;i++){
-                //如果prefix不在剩下的字符串的第一个位置出现，prefix就缩减一位
+                // 如果prefix不在剩下的字符串的第一个位置出现，prefix就缩减一位
                 while(strs[i].indexOf(prefix)!=0){
                     prefix=prefix.substring(0,prefix.length()-1);
                     if (prefix.isEmpty()) return "";
