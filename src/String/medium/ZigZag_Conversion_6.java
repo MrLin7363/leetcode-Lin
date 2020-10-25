@@ -15,6 +15,10 @@ package String.medium;/*
 2.按行访问
 按照与逐行读取 Z 字形图案相同的顺序访问字符串。   ON ON
 首先访问 行 0 中的所有字符，接着访问 行 1，然后 行 2，依此类推...
+P   A   H   N
+A P L S I I G
+Y   I   R
+每一次循环 上面的是 4
  */
 
 import java.util.ArrayList;
@@ -44,18 +48,26 @@ public class ZigZag_Conversion_6 {
         return res.toString();
     }
 
+    /*
+    P   A   H   N
+    A P L S I I G
+    Y   I   R
+    i=2 时循环到第2行； 环=4。j每次+4。
+     */
     public static String convert2(String s, int numRows) {
         if (numRows == 1) return s;
 
         StringBuilder ret = new StringBuilder();
         int n = s.length();
-        int cycleLen = 2 * numRows - 2;
-
+        int cycleLen = 2 * numRows - 2; // 如上图，一个循环=4， PAYP  ,  ALIS , HIRI , NG
+        // 每一行
         for (int i = 0; i < numRows; i++) {
+            // j每一次循环，要确定两个数字，一个是循环次数中的第一个字母，一个是 Z 中间连接的字母
             for (int j = 0; j + i < n; j += cycleLen) {
-                ret.append(s.charAt(j + i));
-//                if (i != 0 && i != numRows - 1 && j + cycleLen - i < n)
-//                    ret.append(s.charAt(j + cycleLen - i));
+                ret.append(s.charAt(j + i));  // 第2行时，j =0，确定A
+                if (i != 0 && i != numRows - 1 && j + cycleLen - i < n) // 中间行的要额外确定多一个字母
+                    // 第2行时，j =0，确定P
+                    ret.append(s.charAt(j + cycleLen - i));
             }
         }
         return ret.toString();
