@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author: Junlin Chen
  * @Date: 2020/10/22 22:30
- * @Describe:
+ * @Describe: 生成括号
  * 1.DFS
  * 2.DP
  */
