@@ -5,7 +5,7 @@ package Array.easy;
  * @Date: 2020/06/25 19:24
  * @Describe:
  */
-public class MergeSortedArray_22 {
+public class MergeSortedArray_88 {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         //设置两个指针
         int p1=m-1;
