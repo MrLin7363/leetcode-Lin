@@ -38,7 +38,6 @@ public class Letter_Combinations_of_a_Phone_Number_17 {
                 backtrack(combination + letter, next_digits.substring(1));
             }
         }
-
     }
 
     public List<String> letterCombinations(String digits) {
