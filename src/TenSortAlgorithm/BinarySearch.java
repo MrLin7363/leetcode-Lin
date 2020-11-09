@@ -4,6 +4,7 @@ package TenSortAlgorithm;
  * @author: Junlin Chen
  * @Date: 2020/07/07 17:21
  * @Describe: 二分法查找一个数的下标，这个算法可以用来插入一个值到有序数组中并保持有序性
+ *  int mid=low+(high-low)/2; // 防止溢出
  */
 public class BinarySearch {
     int binarySearch(int[] nums, int target) {
