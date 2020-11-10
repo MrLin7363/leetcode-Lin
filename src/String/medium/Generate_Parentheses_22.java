@@ -29,7 +29,7 @@ public class Generate_Parentheses_22 {
         }
         else{
             cur[pos]='(';
-            generateAll(cur,pos+1,result);
+            generateAll(cur,pos+1,result); // 每次递归的cur都是不一样的
             cur[pos]=')';
             generateAll(cur,pos+1,result);
         }
