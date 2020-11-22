@@ -6,5 +6,9 @@ package DynamicProgramming.easy.Medium;/*
   *@Describe: 零钱兑换
  */
 
-public class Coin_Change_322 {
+public class P322Coin_Change {
+    public int coinChange(int[] coins, int amount) {
+        //
+        return 0;
+    }
 }
