@@ -5,6 +5,7 @@ package Array.medium;/*
   *@Date 2020/11/21
   *@Describe: 只用输出个数，所以用回溯超时
   回溯参考39题，只用 for循环里面 i = 0 修改即可，此题目顺序不同也算组合，不过超时
+  DP
  */
 
 import java.util.*;
@@ -40,6 +41,12 @@ public class P377Combination_Sum_IV {
                     System.out.println("dp["+i+"]="+dp[i]+"  dp["+s+"]="+dp[i-num]);
                 }
             }
+            // 这两个for 循环一样的
+           /* for (int j = 0; j < coins.length; j++) {
+                if (coins[j] <= i) {
+                    dp[i] += dp[i - coins[j]];
+                }
+            }*/
         }
         System.out.println(dp[target]);
         return dp[target];
@@ -49,7 +56,7 @@ public class P377Combination_Sum_IV {
         combinationSum4(new int[]{1,3,4},7);
     }
     /*
-    超时
+    超时不看----------------------------------------------------------------------
      */
     public static int combinationSum42(int[] nums, int target) {
         int len = nums.length;
