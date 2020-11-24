@@ -1,4 +1,4 @@
-package DynamicProgramming.easy.easy;
+package DynamicProgramming.easy;
 
 /**
  * @author: Junlin Chen

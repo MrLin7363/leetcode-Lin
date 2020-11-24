@@ -1,4 +1,4 @@
-package DynamicProgramming.easy.Medium;/*
+package DynamicProgramming.medium;/*
     
 /**
   *@Author JunLin
