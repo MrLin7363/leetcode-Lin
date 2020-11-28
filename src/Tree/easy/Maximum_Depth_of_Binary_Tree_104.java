@@ -12,7 +12,41 @@ import java.util.Queue;
  * @Describe:
  */
 public class Maximum_Depth_of_Binary_Tree_104 {
+    // DFS 最好 100+95
+    //        return root==null?0:Math.max(maxDepth(root.left),maxDepth(root.right))+1;
+
+    /*
+    BFS 12+ 99
+     */
     public int maxDepth(TreeNode root) {
+        if (root==null){
+            return 0;
+        }
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        int ans=0;
+        while (!queue.isEmpty()){
+            int size=queue.size();
+            // 依次将该层所有的节点入队列
+            while (size>0){
+                TreeNode node=queue.poll();
+                if (node.left!=null){
+                    queue.offer(node.left);
+                }
+                if (node.right!=null){
+                    queue.offer(node.right);
+                }
+                // 将该层队列的所有节点都添加进队列，size已经固定好了
+                size--;
+            }
+            ans++;
+        }
+        return ans;
+    }
+
+
+        // DFS 不采纳
+    public int maxDepth2(TreeNode root) {
         //定义一个键值对都有意义的栈,poll()是删除并弹出第一个元素
         Queue<Pair<TreeNode,Integer>> queue=new LinkedList<>();
         //将首节点加入
@@ -35,4 +69,3 @@ public class Maximum_Depth_of_Binary_Tree_104 {
     }
 }
 
-//        return root==null?0:Math.max(maxDepth(root.left),maxDepth(root.right))+1;
