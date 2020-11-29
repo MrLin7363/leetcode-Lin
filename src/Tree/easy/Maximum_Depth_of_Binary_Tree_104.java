@@ -45,7 +45,7 @@ public class Maximum_Depth_of_Binary_Tree_104 {
     }
 
 
-        // DFS 不采纳
+        // DFS
     public int maxDepth2(TreeNode root) {
         //定义一个键值对都有意义的栈,poll()是删除并弹出第一个元素
         Queue<Pair<TreeNode,Integer>> queue=new LinkedList<>();
