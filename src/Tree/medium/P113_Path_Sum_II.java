@@ -3,7 +3,7 @@ package Tree.medium;/*
 /**
   *@Author JunLin
   *@Date 2020/11/29
-  *@Describe:
+  *@Describe: 根节点到叶子节点=和
  */
 
 import Construct.TreeNode;
@@ -30,7 +30,7 @@ public class P113_Path_Sum_II {
             TreeNode cur=queueNode.poll();
             int curSum=queueSum.poll()+cur.val; // 当前和
             // 叶子节点
-            if (root.left==null && root.right==null){
+            if (cur.left==null && cur.right==null){
                 if (curSum==sum){
                     getPath(cur);
                 }

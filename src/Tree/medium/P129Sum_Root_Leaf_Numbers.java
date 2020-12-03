@@ -3,13 +3,44 @@ package Tree.medium;/*
 /**
   *@Author JunLin
   *@Date 2020/12/1
-  @Describe: 求根到叶子节点数字之和
+  @Describe: 求根到叶子节点数字拼接之和
   结点0-9
 */
 
 import Construct.TreeNode;
+import java.util.*;
 
 public class P129Sum_Root_Leaf_Numbers {
+
+    /*
+    BFS  25 + 28
+     */
+    public int sumNumbers3(TreeNode root) {
+        if(root==null) return 0;
+        Queue<TreeNode> queueNode=new LinkedList<>();
+        Queue<Integer> queueSum=new LinkedList<>();
+        queueNode.offer(root);
+        queueSum.offer(root.val);
+        int res=0;
+        while (!queueNode.isEmpty()){
+            TreeNode node=queueNode.poll();
+//            int curSum=queueSum.poll()*10+node.val; 因为根节点就是本身所以不能操作
+            int curSum=queueSum.poll();
+            if (node.left==null && node.right==null){
+                res+=curSum;
+            }else{
+                if (node.left !=null){
+                    queueNode.offer(node.left);
+                    queueSum.offer(curSum*10+node.left.val);
+                }
+                if (node.right!=null){
+                    queueNode.offer(node.right);
+                    queueSum.offer(curSum * 10 +node.right.val);
+                }
+            }
+        }
+        return res;
+    }
     /*
     自己写的递归 DFS
     到达叶子节点一  10+39
@@ -45,6 +76,9 @@ public class P129Sum_Root_Leaf_Numbers {
         System.out.println(sumNumbers(node));
     }
 
+    /*
+    官方DFS
+     */
     public static int sumNumbers2(TreeNode root) {
         return dfs(root, 0);
     }
