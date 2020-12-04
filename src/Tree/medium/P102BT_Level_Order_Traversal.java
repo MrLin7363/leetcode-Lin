@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class P102Level_Order_Traversal {
+public class P102BT_Level_Order_Traversal {
     /*
     DFS  55 + 79
      */
