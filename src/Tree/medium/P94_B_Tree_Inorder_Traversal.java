@@ -52,7 +52,7 @@ public class P94_B_Tree_Inorder_Traversal {
         return res;
     }
 
-    // 迭代方法DFS 100 + 14
+    // 迭代方法BFS 100 + 14
     public  List<Integer> inorderTraversalDFS(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
