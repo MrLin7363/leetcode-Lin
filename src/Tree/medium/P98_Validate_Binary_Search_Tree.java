@@ -13,8 +13,8 @@ import java.util.Queue;
 
 public class P98_Validate_Binary_Search_Tree {
     /*
-    递归  BST   2,1,3,NULL,NULL,2,3  不是BST 如要右子树所有结点都大于根节点
-    这个方法相当于递归 区间  100 + 36
+    递归  BST   2,1,3,NULL,NULL,2,4  不是BST 如要右子树所有结点都大于根节点
+    这个方法相当于递归区间  100 + 36
      */
     public boolean isValidBST(TreeNode root) {
         return isValid(root,null,null);

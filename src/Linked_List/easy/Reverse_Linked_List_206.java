@@ -13,7 +13,6 @@ import Construct.ListNode;
  */
 public class Reverse_Linked_List_206 {
     public ListNode reverseList(ListNode head) {
-        if (head==null) return null;
         if (head.next==null) return head;
         ListNode pre=null;
         ListNode next=null;
@@ -31,6 +30,7 @@ public class Reverse_Linked_List_206 {
     }
     /*
      递归版本
+     //第一次递归交换后是：  1>2>3>4<5
      */
     public ListNode reverseListRecursion(ListNode head) {
         if (head==null || head.next==null) return head;

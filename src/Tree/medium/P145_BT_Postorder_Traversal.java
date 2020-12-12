@@ -12,7 +12,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-public class P145_B_Tree_Postorder_Traversal {
+public class P145_BT_Postorder_Traversal {
 
     /*
     Mirror 算法 注意要一个点记住根节点  100 + 14

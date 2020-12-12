@@ -13,7 +13,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-public class P94_B_Tree_Inorder_Traversal {
+public class P94_BT_Inorder_Traversal {
     /*
   Morris 解法  100+ 99
    */
@@ -24,7 +24,7 @@ public class P94_B_Tree_Inorder_Traversal {
         while (root!=null){
             // 有左孩子，找predecessor
             if (root.left!=null){
-                // 找predecessor 节点就是当前 root 节点向左走一步，然后一直向右走至无法走为止
+                // 找 predecessor 节点就是当前 root 节点向左走一步，然后一直向右走至无法走为止
                 predecessor=root.left;
                 // root.right != root 是防止已经连接后找到root结点
                 while (predecessor.right!=null && predecessor.right != root){
@@ -35,7 +35,7 @@ public class P94_B_Tree_Inorder_Traversal {
                     predecessor.right = root;
                     root = root.left;
                 }
-                // 说明左子树已经访问完了
+                // 说明左子树已经访问完了，对应根节点
                 else{
                     res.add(root.val);
                     // 可以断开链接也可以不断开，断开链接空间复杂度更高
@@ -43,7 +43,7 @@ public class P94_B_Tree_Inorder_Traversal {
                     root=root.right;
                 }
             }
-            // 如果没有左孩子，则直接访问右孩子
+            // 如果没有左孩子，则直接访问右孩子  对应左叶子结点
             else{
                 res.add(root.val);
                 root=root.right;
