@@ -50,11 +50,22 @@ public class Palindrome_Linked_List_234 {
         return pre;
     }
     /*
-    找中间节点
+    快慢指针 找中间节点
      */
     private ListNode endOfFirstHead(ListNode head){
         ListNode slow=head,fast=head;
         while (fast.next!=null && fast.next.next!=null ){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+    /*
+   快慢指针 找中间节点2
+    */
+    private ListNode endOfFirstHead2(ListNode head){
+        ListNode slow=head,fast=head.next;
+        while (fast!=null && fast.next!=null ){
             slow=slow.next;
             fast=fast.next.next;
         }
