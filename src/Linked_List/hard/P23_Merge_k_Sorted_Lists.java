@@ -7,16 +7,67 @@ package Linked_List.hard;/*
  */
 
 import Construct.ListNode;
+import java.util.PriorityQueue;
 
 public class P23_Merge_k_Sorted_Lists {
     /*
-
+    自定义优先队列  20 + 5
+    队列比较的是每一个链表的头结点，依次将最小的用新的链表串起来
      */
+    static class Status implements Comparable<Status>{
+        int val;
+        ListNode node;
 
+        public Status(int val, ListNode node) {
+            this.val = val;
+            this.node = node;
+        }
+        // 优先队列会根据这个去找最小的先出队列
+        @Override
+        public int compareTo(Status status) {
+            return this.val-status.val;
+        }
+    }
+    public ListNode mergeKLists(ListNode[] lists) {
+        PriorityQueue<Status> queue=new PriorityQueue<>();
+//        PriorityQueue<ListNode> queue=new PriorityQueue<>((x,y)-> x.val-y.val);
+        for(ListNode node:lists){
+            if (node!=null){
+                queue.offer(new Status(node.val,node));
+            }
+        }
+        ListNode head=new ListNode(-1); // 结果数组哨兵
+        ListNode tail=head;
+        while (!queue.isEmpty()){
+            Status minFirst=queue.poll(); // 头结点最小的 链表
+            tail.next=minFirst.node; // 将头结点放进结果数组
+            tail=tail.next;
+            if (minFirst.node.next!=null){
+                queue.offer(new Status(minFirst.node.next.val,minFirst.node.next)); // 将该链表的下一个链表放入队列
+            }
+        }
+        return head.next;
+    }
+
+    /*
+    分治迭代  80  +  90
+     */
+    public ListNode mergeKLists4(ListNode[] lists) {
+        int len=lists.length;
+        if (len==0) return null;
+        // <<1 是两倍
+        for (int step = 1; step < len; step<<=1) {
+            for (int i = step; i < len; i+=step<<1) {
+                // 如 step ==2 时， 交换的是 0-2 4-6 8-10
+                lists[i-step]=mergeTwoLists(lists[i],lists[i-step]);
+            }
+        }
+        return lists[0];
+    }
     /*
     分治合并 100 + 46
      */
-    public ListNode mergeKLists(ListNode[] lists) {
+    public ListNode mergeKLists2(ListNode[] lists) {
         return merge(lists,0,lists.length);
     }
     public ListNode merge(ListNode[] lists,int l,int r){
