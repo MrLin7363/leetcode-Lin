@@ -3,7 +3,7 @@ package TenSortAlgorithm;
 /**
  * @author: Junlin Chen
  * @Date: 2020/07/07 17:46
- * @Describe:
+ * @Describe: nlogn
  */
 public class HeapSort {
     public static int[] heapSort(int[] arr){
