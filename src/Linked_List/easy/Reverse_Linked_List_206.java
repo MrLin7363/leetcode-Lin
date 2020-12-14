@@ -12,6 +12,7 @@ import Construct.ListNode;
  * //最后：  1<2<3<4<5   头结点指向5   OK
  */
 public class Reverse_Linked_List_206 {
+    // 三节点迭代反转链表法
     public ListNode reverseList(ListNode head) {
         if (head.next==null) return head;
         ListNode pre=null;
