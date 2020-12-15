@@ -7,7 +7,8 @@ import Construct.ListNode;
  * @Date: 2020/06/30 15:56
  * @Describe:
  */
-public class Remove_Duplicates_from_Sorted_List_86 {
+public class P83_Remove_Duplicates_from_Sorted_List {
+    // 迭代
     public ListNode deleteDuplicates(ListNode head) {
         ListNode pre=head;
         ListNode end=head;
