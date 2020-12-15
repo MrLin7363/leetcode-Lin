@@ -3,7 +3,7 @@ package TenSortAlgorithm;
 /**
  * @author: Junlin Chen
  * @Date: 2020/07/07 17:45
- * @Describe:
+ * @Describe: nlogn
  */
 public class ShellSrot {
     public static int[] shellSort(int[] arr){

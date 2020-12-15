@@ -8,6 +8,8 @@ package MyTest;/*
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Big2 {
     public static void main(String[] args) {
@@ -23,5 +25,9 @@ public class Big2 {
         BigDecimal c=new BigDecimal(1);
         if (b.equals(c))
             System.out.println("yes");*/
+
+       int random=new Random().nextInt(10000);
+       String str=String.format("%05d",random);
+        System.out.println(str);
     }
 }

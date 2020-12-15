@@ -28,7 +28,7 @@ public class P112Path_Sum {
     BFS 两个队列，增加移除统一进行，就对应起来了  12+64
      */
     public boolean hasPathSum2(TreeNode root, int sum) {
-        if (root==null) return false;
+        if (root==null) return false ;
         Queue<TreeNode> queNode=new LinkedList<>();
         Queue<Integer> queVal=new LinkedList<>();
         queNode.offer(root);
