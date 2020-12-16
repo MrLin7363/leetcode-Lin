@@ -1,4 +1,4 @@
-package Design;/*
+package Design.medium;/*
     
 /**
   *@Author JunLin
@@ -9,7 +9,9 @@ package Design;/*
  * obj.put(key,value);
  */
 
-public class P146_LRU_Cache {
+import java.util.LinkedHashMap;
+
+public class P146_LRU_Cache extends LinkedHashMap<Integer,Integer> {
 
     class LRUCache {
 
