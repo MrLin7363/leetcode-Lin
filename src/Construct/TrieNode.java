@@ -29,4 +29,7 @@ public class TrieNode {
     public boolean isEnd() {
         return isEnd;
     }
+    public TrieNode[] getLinks() {
+        return links;
+    }
 }
