@@ -3,10 +3,13 @@ package Construct;/*
 /**
   *@Author JunLin
   *@Date 2020/12/17
-  *@Describe: 字典树
+  *@Describe: 数组 - 字典树 结点
  */
 
 public class TrieNode {
+    /*
+    一个结点指向孩子结点的“指针”们用数组表示；
+     */
     private TrieNode[] links;
     private final int R=26;
     private boolean isEnd; // 判断是否有当前字符串，而不只是前缀
@@ -32,4 +35,6 @@ public class TrieNode {
     public TrieNode[] getLinks() {
         return links;
     }
+
+
 }
