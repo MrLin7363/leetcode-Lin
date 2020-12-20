@@ -50,7 +50,7 @@ public class Palindrome_Linked_List_234 {
         return pre;
     }
     /*
-    快慢指针 找中间节点
+    快慢指针 找中间左边节点
      */
     private ListNode endOfFirstHead(ListNode head){
         if (head==null) return null;
@@ -62,7 +62,7 @@ public class Palindrome_Linked_List_234 {
         return slow;
     }
     /*
-   快慢指针 找中间节点2
+   快慢指针 找中间左边节点2
     */
     private ListNode endOfFirstHead2(ListNode head){
         if (head==null) return null;
