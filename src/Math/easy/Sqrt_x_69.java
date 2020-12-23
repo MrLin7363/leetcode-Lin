@@ -44,7 +44,6 @@ public class Sqrt_x_69 {
       /*
     牛顿迭代法 递归
      */
-     //s为随便猜的值
      private int s;
     public int mySqrtN(int x) {
         s=x;

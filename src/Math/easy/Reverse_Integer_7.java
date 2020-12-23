@@ -22,6 +22,5 @@ public class Reverse_Integer_7 {
             rev = rev * 10 + pop;
         }
         return rev;
-
     }
 }

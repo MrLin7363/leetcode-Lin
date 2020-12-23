@@ -6,21 +6,20 @@ package Math.easy;
  * @Describe: 用String判断
  */
 public class Palindrome_Number_9 {
+    // 反转后半段判断
     public static boolean isPalindrome(int x) {
+        // 负数或者 0 不是回文
         if(x<0 || x%10==0 && x!=0){
             return false;
         }
         int revernumber=0;
+        // 反转中间的后半段
         while(x>revernumber){
             revernumber=revernumber*10+x%10;
             x/=10;
         }
+        // 除于10就是奇数的比较
         return x==revernumber || x==revernumber/10;
-
-
-
-
-
 
 
         /*String s=String.valueOf(x);
@@ -34,7 +33,4 @@ public class Palindrome_Number_9 {
         return false;*/
     }
 
-    public static void main(String[] args) {
-//        System.out.println(isPalindrome(121));
-    }
 }

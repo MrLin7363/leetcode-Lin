@@ -24,6 +24,7 @@ public class RomanToInteger_13 {
 
         int sum=romanValues.get(s.charAt(s.length()-1));
         for(int i=s.length()-2;i>=2;i--){
+            // 如 XL  先 + 50 再 - 10
             if(romanValues.get(s.charAt(i))<romanValues.get(s.charAt(i+1))){
                 sum+=romanValues.get(s.charAt(i));
             }else{
