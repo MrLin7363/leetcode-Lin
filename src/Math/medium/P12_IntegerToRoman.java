@@ -8,7 +8,7 @@ import java.util.Map;
  * @Date: 2020/06/21 20:13
  * @Describe:
  */
-public class IntegerToRoman_12 {
+public class P12_IntegerToRoman {
     public String intToRoman(int num) {
        String[] roman={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
        int[] values=new int[]{1000,900,500,400,100,90,50,40,10,9,5,4,1};

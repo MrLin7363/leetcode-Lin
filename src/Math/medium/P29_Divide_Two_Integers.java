@@ -3,7 +3,7 @@ package Math.medium;/*
 /**
   *@Author JunLin
   *@Date 2020/12/24
-  *@Describe:
+  *@Describe: 翻倍除法
  */
 
 public class P29_Divide_Two_Integers {

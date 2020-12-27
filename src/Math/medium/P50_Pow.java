@@ -37,7 +37,7 @@ public class P50_Pow {
     }
 
     /*
-    快速幂 + 递归   97 + 15
+    这个好实现 ： 快速幂 + 递归   97 + 15
     直接把上一次的结果进行平方，奇数额外乘一个 x
      */
     public  double quickMul2(double x, long N) {

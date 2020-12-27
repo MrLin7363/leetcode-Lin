@@ -11,9 +11,17 @@ import java.util.Set;
 
 public class P202_Happy_Number {
     /*
-
+    快慢指针 82 + 92
      */
-
+    public boolean isHappy2(int n) {
+        int slow=n;
+        int fast=getNext(n);
+        while (slow!=1 && slow!=fast ){
+            slow=getNext(slow);
+            fast=getNext(getNext(fast));
+        }
+        return slow==1;
+    }
     /*
     哈希判断环 82 + 67
      */
