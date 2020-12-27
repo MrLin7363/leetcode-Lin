@@ -3,28 +3,33 @@ package Math.medium;/*
 /**
   *@Author JunLin
   *@Date 2020/12/27
-  *@Describe:
+  *@Describe: 参考P264丑数2
  */
 
 public class P313_Super_Ugly_Number {
+    // 87 + 78
     public int nthSuperUglyNumber(int n, int[] primes) {
-        int[] nums=new int[n];
-
-        return 0;
-    }
-    class UglyDP{
-        public int[] nums=new int[1690];
-        UglyDP(){
-            nums[0]=1;
-            int ugly,i2=0,i3=0,i5=0;
-            for (int i = 1; i < 1690; i++) {
-                ugly=Math.min(Math.min(nums[i2]*2 , nums[i3]*3) ,nums[i5] *5 );
-                nums[i]=ugly;
-                //全都加1的话就会把这个重复数给过滤掉了
-                if (ugly==nums[i2]*2) i2++;
-                if (ugly==nums[i3]*3) i3++;
-                if (ugly==nums[i5]*5) i5++;
+        int[] dp=new int[n];
+        dp[0]=1;
+        int ugly,i2=0,i3=0,i5=0;
+        // 记录每一个质数列表的下标
+        int[] index=new int[primes.length];
+        for (int i = 1; i < n; i++) {
+            // 找最小
+            int min=Integer.MAX_VALUE;
+            for (int j = 0; j < primes.length; j++) {
+                if (min>primes[j] * dp[index[j]] ){
+                    min=primes[j]*dp[index[j]];
+                }
+            }
+            dp[i]=min;
+            // 移动下标
+            for (int j = 0; j < primes.length; j++) {
+                if (min==primes[j]*dp[index[j]]){
+                    index[j]++;
+                }
             }
         }
+        return dp[n-1];
     }
 }
