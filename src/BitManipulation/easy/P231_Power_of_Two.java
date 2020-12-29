@@ -8,7 +8,7 @@ package BitManipulation.easy;/*
 
 public class P231_Power_of_Two {
     /*
-        位运算 -将二进制中最右边的 1 设置为 0  99 +28
+     位运算 -将二进制中最右边的 1 设置为 0  99 +28
      */
     public boolean isPowerOfTwo(int n) {
         if (n == 0) return false;
