@@ -1,4 +1,4 @@
-package BitManipulation.easy;
+package Bit_Manipulation.easy;
 
 import java.util.HashMap;
 import java.util.Map;
