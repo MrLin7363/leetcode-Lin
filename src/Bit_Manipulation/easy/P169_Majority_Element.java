@@ -8,11 +8,23 @@ package Bit_Manipulation.easy;/*
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class P169_Majority_Element {
 
-
+    /*
+    投票算法  99 + 64
+     */
+    public int majorityElement2(int[] nums) {
+        int candidate=0;
+        int count=0;
+        for (int num:nums){
+            if (count==0){
+                candidate=num;
+            }
+            count+=num==candidate?1:-1;
+        }
+        return candidate;
+    }
     /*
     hashmap 47 + 17
      */
