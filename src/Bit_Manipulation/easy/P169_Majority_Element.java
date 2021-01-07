@@ -1,4 +1,4 @@
-package Bit_Manipulation.easy;/*
+package Bit_Manipulation.easy;
     
 /**
   *@Author JunLin
