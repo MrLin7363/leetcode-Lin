@@ -6,31 +6,45 @@ package Array.medium;/*
   *@Describe:
  */
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class P1306_Jump_Game_III {
-    int pre;
-    boolean flag=false;
-    public boolean canReach(int[] arr, int start) {
-        pre=start;
-        return rec(arr,start);
+    /*
+    DFS 采用访问数组形式  10 + 5
+     */
+    public boolean canReach2(int[] arr, int start) {
+        int[] seen = new int[arr.length]; // 0
+        return dfs2(arr, start, seen);
     }
-    public boolean rec(int[] arr, int start){
-        if (0==arr[start]){
-            return true;
-        }
-        // 如果回到起始点
-        if (start==pre && flag==true){
-            return false;
-        }
-        if (start+arr[start]<=arr.length-1){
-            flag=true;
-            return rec(arr,start+arr[start]);
-        }
-        if (start-arr[start]>=0){
-            flag=true;
-            return rec(arr,start-arr[start]);
+    public boolean dfs2(int[] arr, int start, int[] seen) {
+        if (start<0 || start>=arr.length || seen[start]==1) return false;
+        seen[start]++;
+        if (arr[start] == 0) return true;
+        return dfs2(arr, start - arr[start], seen) || dfs2(arr, start + arr[start], seen);
+    }
+    /*
+    BFS  每次加入前后跳跃的两个结点  7 + 5
+     */
+    public boolean canReach(int[] arr, int start) {
+        Queue<Integer> queue=new ArrayDeque<>();
+        queue.offer(start);
+        int[] seen=new int[arr.length];
+        while (!queue.isEmpty()){
+            int pos=queue.poll();
+            if (arr[pos]==0){
+                return true;
+            }
+            // 遍历两个元素
+            for (int nextPos:new int[]{pos+arr[pos],pos-arr[pos]}){
+                if (nextPos<0 || nextPos>=arr.length || seen[nextPos]==1){
+                    continue;
+                }
+                seen[nextPos]++;
+                queue.offer(nextPos);
+            }
         }
         return false;
     }
-
 
 }
