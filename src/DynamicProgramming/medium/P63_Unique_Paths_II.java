@@ -1,4 +1,4 @@
-package Array.medium;
+package DynamicProgramming.medium;
     
 /**
   *@Author JunLin
