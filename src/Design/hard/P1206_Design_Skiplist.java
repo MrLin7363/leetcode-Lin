@@ -4,6 +4,7 @@ package Design.hard;/*
   *@Author JunLin
   *@Date 2021/1/13
   *@Describe: 跳表
+  随机函数的算法可以重写按redis的做还没有试
  */
 
 import java.util.Random;
