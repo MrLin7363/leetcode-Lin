@@ -66,7 +66,7 @@ public class Generate_Parentheses_22 {
         // 左括号数量不大于 nn，我们可以放一个左括号
         if (open<max)
             backtrack(result,cur+"(",open+1,close,max);
-        // 右括号数量小于左括号的数量，我们可以放一个右括号。
+        // 右括号数量小于左括号的数量，我们可以放一个右括号
         if (close<open)
             backtrack(result,cur+")",open,close+1,max);
     }
@@ -98,7 +98,7 @@ public class Generate_Parentheses_22 {
             for (int j = 0; j < i ; j++) {   // 遍历开始
                 List<String> StringP=result.get(j);
                 List<String> StringQ=result.get(i-1-j);
-                for (String s1: StringP){
+                for (String s1: StringP){ // 每个dp的组合
                     for (String s2:StringQ)
                         temp.add( "("+s1+")" +s2 );
                 }
@@ -135,7 +135,7 @@ public class Generate_Parentheses_22 {
     }
 
     public static void main(String[] args) {
-        generateParenthesisByDP(3);
+        generateParenthesisByDPRecursion(3);
     }
 
 }
