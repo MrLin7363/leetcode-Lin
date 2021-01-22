@@ -10,7 +10,7 @@ public class HeapSort {
         int n=arr.length;
         //构建大顶堆，从第倒数第二层有孩子结点的结点开始向前遍历,每一次在倒数第二层构造一个小的大顶堆，后面就能合起来了
         for (int i= (n-2)/2; i>=0 ; i--){
-                downAjust(arr, i , n-1);
+            downAjust(arr, i , n-1);
         }
         //父节点下沉，进行堆排序
         for (int i=n-1; i>=1 ; i-- ){

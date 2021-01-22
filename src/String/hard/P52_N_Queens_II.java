@@ -6,10 +6,8 @@ package String.hard;/*
   *@Describe: 返回方案个数
  */
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class P52_N_Queens_II {
