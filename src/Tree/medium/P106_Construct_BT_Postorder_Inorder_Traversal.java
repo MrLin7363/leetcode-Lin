@@ -15,7 +15,7 @@ public class P106_Construct_BT_Postorder_Inorder_Traversal {
     /*
     递归 95 + 26
      */
-    Map<Integer,Integer> indexMap=new HashMap<>();
+    Map<Integer,Integer> indexMap=new HashMap<>(); // hashmap 记录中序遍历的下标，好找根节点
     //  从后往前遍历后序遍历数组的下标标识，因为左右根，所以要先添加add完右子树，才添加左子树
     int index;
     public TreeNode buildTree(int[] inorder, int[] postorder) {

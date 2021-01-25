@@ -46,8 +46,10 @@ public class P77Combinations {
     }
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
-        List<List<Integer>> lists = combine(4,4);
-        System.out.println(lists);
+        List<List<Integer>> lists = combine(4,3);
+        for (int i=0;i<lists.size();i++){
+                System.out.println(lists.get(i));
+        }
     }
 
 }

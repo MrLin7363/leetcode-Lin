@@ -29,14 +29,13 @@ public class P47_Permutations_II {
     public static void backtrack(int[] nums, List<List<Integer>> ans, int idx, List<Integer> perm) {
         if (idx == nums.length) {
             ans.add(new ArrayList<>(perm));
-            System.out.println(perm);
             return;
         }
         for (int i = 0; i < nums.length; ++i) {
             // 剪枝条件：i > 0 是为了保证 nums[i - 1] 有意义
             // 写 !vis[i - 1] 是因为 nums[i - 1] 在深度优先遍历的过程中刚刚被撤销选择
             // 1.vis[i]==true 是为了跳过每一层DFS for循环前面的数值，直接从剩余的数字中进行for循环
-            if (vis[i] || (i > 0 && nums[i] == nums[i - 1] && vis[i - 1]==false)) {
+            if (vis[i] || (i > 0 && nums[i] == nums[i - 1] && !vis[i - 1])) {
                 continue;
             }
             perm.add(nums[i]);

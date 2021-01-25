@@ -83,7 +83,7 @@ public class P144_BT_Preorder_Traversal {
         }
         while (!stack.isEmpty()) {
             TreeNode node = stack.pollLast();
-            // 顺序插法，根先进，左再进，右最后进，最后顺序就是根左右
+            // 顺序插法，根先进结果队列，右先进栈，左再进栈，最后顺序就是根左右
             res.add(node.val);
             if (node.right != null) {
                 stack.offerLast(node.right);

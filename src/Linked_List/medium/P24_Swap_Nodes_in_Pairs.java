@@ -15,7 +15,7 @@ public class P24_Swap_Nodes_in_Pairs {
     public ListNode swapPairs(ListNode head) {
         if (head==null || head.next==null) return head;
         ListNode newHead=head.next;
-        head.next=swapPairs(newHead.next);
+        head.next=swapPairs(newHead.next); // 比如第一个结点.next 等于第一个结点的.next.next的swapPairs
         newHead.next=head;
         return newHead;
     }
