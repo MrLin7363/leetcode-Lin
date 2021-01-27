@@ -22,9 +22,13 @@ public class P328_Odd_Even_Linked_List {
         ListNode oddNode = head;
         // 断开：结束条件为 oddNode 是尾结点
         while (evenNode != null && evenNode.next != null) {
+            // 跳两步
             oddNode.next = evenNode.next;
+            // 移动指针
             oddNode = oddNode.next;
+            // 跳两步
             evenNode.next = oddNode.next;
+            // 移动指针
             evenNode = evenNode.next;
         }
         // 拼接

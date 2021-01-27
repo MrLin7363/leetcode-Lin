@@ -24,7 +24,7 @@ public class Longest_Common_Prefix_14 {
     }
 
     //2、纵向比较，拿第一个字符串的字符逐一和后面的字符串的相同位置的字符比较
-    public String longestCommonPrefixByVertical(String[] strs) {
+    public static String longestCommonPrefixByVertical(String[] strs) {
         int len=strs.length;
         int n=strs[0].length();
         for (int i=0;i<n;i++){
@@ -38,6 +38,10 @@ public class Longest_Common_Prefix_14 {
             }
         }
         return strs[0];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longestCommonPrefixByVertical(new String[]{"q","q"}));
     }
     /*
     ---------------------------------------------------------------------------

@@ -18,8 +18,8 @@ public class P51_N_Queens {
      */
     List<List<String>> solutions = new ArrayList<>();
     Set<Integer> column=new HashSet<>(); // 每一列是否存皇后了
-    Set<Integer> diagonalsLeft=new HashSet<>(); //斜线为从左上到右下
-    Set<Integer> diagonalsRight=new HashSet<>();//斜线为从右上到左下
+    Set<Integer> diagonalsLeft=new HashSet<>(); //斜线为从左上到右下，行下标-列下标相等
+    Set<Integer> diagonalsRight=new HashSet<>();//斜线为从右上到左下，行下表+列下标相等
     public List<List<String>> solveNQueens(int n) {
         int[] queens=new int[n];
         Arrays.fill(queens,-1);

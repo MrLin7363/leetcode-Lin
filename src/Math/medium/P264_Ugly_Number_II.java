@@ -34,9 +34,13 @@ public class P264_Ugly_Number_II {
             }
         }
     }
-    public int nthUglyNumber(int n) {
+    public  int nthUglyNumber(int n) {
 //         return new Ugly().nums[n-1];
         return new UglyDP().nums[n-1];
+    }
+
+    public static void main(String[] args) {
+        new P264_Ugly_Number_II().nthUglyNumber(10);
     }
     // DP三指针 丑数 42 + 54
     class UglyDP{

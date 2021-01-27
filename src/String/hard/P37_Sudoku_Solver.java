@@ -44,7 +44,7 @@ public class P37_Sudoku_Solver {
             if (!line[i][digit]&&!column[j][digit]&&!block[i/3][j/3][digit]){
                 line[i][digit] = column[j][digit] = block[i / 3][j / 3][digit] = true;
                 // 填入数字
-                char s=(char)(digit+'0'+1);
+//                char s=(char)(digit+'0'+1);
                 board[i][j]=(char)(digit+'0'+1);
                 // 递归
                 dfs(board,pos+1);

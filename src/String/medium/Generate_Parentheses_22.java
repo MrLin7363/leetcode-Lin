@@ -96,8 +96,8 @@ public class Generate_Parentheses_22 {
         for (int i = 2 ; i <= n; i++) {
             ArrayList<String> temp = new ArrayList<>(); // 每一个合适的括号对组合
             for (int j = 0; j < i ; j++) {   // 遍历开始
-                List<String> StringP=result.get(j);
-                List<String> StringQ=result.get(i-1-j);
+                List<String> StringP=result.get(j);// i=2 时 dp[0]
+                List<String> StringQ=result.get(i-1-j); //  dp[2]
                 for (String s1: StringP){ // 每个dp的组合
                     for (String s2:StringQ)
                         temp.add( "("+s1+")" +s2 );
