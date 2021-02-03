@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class P51_N_Queens {
     /*
-    集合回溯 n皇后放在 N*N 棋盘  58+15
+    集合回溯 n放在 N*N 棋盘  58+15
      */
     List<List<String>> solutions = new ArrayList<>();
     Set<Integer> column=new HashSet<>(); // 每一列是否存皇后了

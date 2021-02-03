@@ -3,7 +3,7 @@ package wangzheng.Backtrack;
 /**
  * @author: Junlin Chen
  * @Date: 2020/10/06 17:25
- * @Describe: 回溯八皇后问题
+ * @Describe: 回溯问题
  */
 public class queue8 {
 

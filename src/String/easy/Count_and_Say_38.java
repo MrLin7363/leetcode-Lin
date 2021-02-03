@@ -23,6 +23,7 @@ public class Count_and_Say_38 {
                 pl=cur;
             }
         }
+        // 最后cur for循环后是位于length位置的，所以最后一段肯定会相加
         //剩下最后相等的或者1个的加进去，如21上面遍历了2，剩1，这里为加入11
         int count=cur-pl;
         s.append(count).append(str.charAt(pl));

@@ -36,7 +36,7 @@ public class RadioSort {
             // 遍历每个元素
             for (int j = 0; j < n; j++) {
                 // 此时的arr数组已经部分有序，按位数已经有序，再诸位有序就整体有序了
-                int radio = (arr[j] / (int) Math.pow(10, i - 1)) % 10; // 平方
+                int radio = (arr[j] / (int) Math.pow(10, i - 1)) % 10; // 先除于10的i-1次方，然后再求余10
                 // 放入桶中
                 bucketList.get(radio).add(arr[j]);
             }

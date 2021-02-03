@@ -29,7 +29,7 @@ public class QuickSort {
         int j=right;
         //中轴元素
         int pivot=arr[left];
-        //当i==j时停止循环
+        //当i==j时停止循环，找到中间元素
         while (i<j){
             //从右边往左找比中轴元素小的
             while (i<j && arr[j]>=pivot) j--;
