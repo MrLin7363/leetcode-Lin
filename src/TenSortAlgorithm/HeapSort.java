@@ -12,7 +12,7 @@ public class HeapSort {
         for (int i= (n-2)/2; i>=0 ; i--){
             downAjust(arr, i , n-1);
         }
-        //父节点下沉，进行堆排序
+        //父节点下沉，进行
         for (int i=n-1; i>=1 ; i-- ){
             //交换头尾元素
             int temp=arr[i];
