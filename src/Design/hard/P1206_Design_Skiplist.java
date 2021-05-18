@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class P1206_Design_Skiplist {
     /*
-    跳跃表的实现 75+68
+    的实现 75+68
      */
     static class Skiplist {
         class Node {
@@ -34,7 +34,7 @@ public class P1206_Design_Skiplist {
         头结点默认为0值的结点,头结点之间通过down连接
         每一行都有一个头结点，类似于前驱哨兵结点
          */
-        Node head ;
+        Node head;
         Random rand;
         int maxLevel; // 最大层数
         Node[] nodeList;// 添加结点时，路径的记录
