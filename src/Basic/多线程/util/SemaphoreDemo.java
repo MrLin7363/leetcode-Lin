@@ -1,4 +1,4 @@
-package Basic;/*
+package Basic.多线程.util;/*
     
 /**
   *@Author JunLin
@@ -23,7 +23,7 @@ public class SemaphoreDemo {
             try {
                 semaphore.acquire();//请求机器
                 System.out.println("工人"+this.num+"请求机器，正在使用机器");
-//                Thread.sleep(1000);
+                Thread.sleep(1000);
                 System.out.println("工人"+this.num+"使用完毕，已经释放机器");
                 semaphore.release();//释放机器
             } catch (InterruptedException e) {

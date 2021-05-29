@@ -1,4 +1,4 @@
-package Basic;
+package Basic.Lambda.HanshuInterface;
 
 import java.util.function.Function;
 
@@ -13,10 +13,11 @@ public class MyFunction {
        /* convert(100,(Integer i)->{
             return String.valueOf(i);
         });*/
-       convert(100,(i)-> String.valueOf(i));
+       convert(100,
+               (i)-> String.valueOf(i));
     }
     private static void convert(int i, Function<Integer,String> fun){
-        String s=fun.apply(i);
+        String s=fun.apply(i); // 往上执行 String.valueOf(i)
         System.out.println(s);
     }
 }

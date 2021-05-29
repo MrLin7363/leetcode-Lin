@@ -14,7 +14,6 @@ public class RunnableTestMain {
 
     public static void main(String[] args) {
         ExecutorService pool = Executors.newFixedThreadPool(2);
-
         /**
          * execute(Runnable x) 没有返回值。可以执行任务，但无法判断任务是否成功完成。
          */
