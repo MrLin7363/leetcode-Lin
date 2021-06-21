@@ -3,7 +3,7 @@ package Basic.多线程.util;/*
 /**
   *@Author JunLin
   *@Date 2021/2/20
-  *@Describe:
+  *@Describe: 障碍
   CyclicBarrier实现让一组线程等待至某个状态之后再全部同时执行。
 CyclicBarrier底层是
 三个线程同时启动

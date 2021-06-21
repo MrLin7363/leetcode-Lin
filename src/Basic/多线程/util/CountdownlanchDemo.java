@@ -1,7 +1,7 @@
 package Basic.多线程.util;/*
     
 /**
-  *@Author JunLin
+  *@Author JunLin  倒计时门栓
   *@Date 2021/2/20
   *@Describe: 这个类能够使一个线程等待其他线程完成各自的工作后再执行。
         CountDownLatch是通过一个计数器来实现的，计数器的初始值为线程的数量
