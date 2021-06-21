@@ -74,7 +74,7 @@ public class StreamMapTest {
         Map<String, IntSummaryStatistics> stringIntSummaryStatisticsMap = cities.stream().collect(groupingBy(City::getState, summarizingInt(City::getPopulation)));
 
         /*
-        约简操作
+        约简操作  针对List<数据类型>
          */
         List<Integer> values=new ArrayList<>(Arrays.asList(12,32,12));
         Optional<Integer> sum = values.stream().reduce((x, y) -> x + y);// values.stream().reduce(Integer::sum);
@@ -83,6 +83,12 @@ public class StreamMapTest {
         // 么元值 ，例如 int 的么元值=0   不管怎样都会返回0
         Integer sum2=values.stream().reduce(0,Integer::sum);
         System.out.println("sum2="+sum2);
+
+        // 统计所有州人口总和数
+        int peopleSum = cities.stream().mapToInt(City::getPopulation).sum();
+        System.out.println("所有州人口总数为 = " + peopleSum);
+        int peopleSum1 = cities.stream().mapToInt(City::getPopulation).reduce(0,Integer::sum);
+        System.out.println("所有州人口总数为 = " + peopleSum1);
 
 
     }
