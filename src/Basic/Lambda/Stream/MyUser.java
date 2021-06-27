@@ -8,12 +8,12 @@ package Basic.Lambda.Stream;
 public class MyUser {
 
     private String name;
-    private Integer count;
+    private Integer age;
     private String desc;
 
-    public MyUser(String name, Integer count, String desc) {
+    public MyUser(String name, Integer age, String desc) {
         this.name = name;
-        this.count = count;
+        this.age = age;
         this.desc = desc;
     }
 
@@ -25,24 +25,24 @@ public class MyUser {
         this.desc = desc;
     }
 
-    public MyUser(String name, Integer count) {
+    public MyUser(String name, Integer age) {
         this.name = name;
-        this.count = count;
+        this.age = age;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public Integer getCount() {
-        return count;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

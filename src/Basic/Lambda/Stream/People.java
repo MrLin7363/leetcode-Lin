@@ -1,4 +1,4 @@
-package Basic.Lambda;
+package Basic.Lambda.Stream;
 
 
 /**

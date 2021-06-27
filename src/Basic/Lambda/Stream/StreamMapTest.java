@@ -1,8 +1,8 @@
-package Basic.Lambda;
+package Basic.Lambda.Stream;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentMap;
-import java.util.stream.Collector;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static java.util.stream.Collectors.*;
@@ -33,8 +33,8 @@ public class StreamMapTest {
             System.out.println("键冲突了" + e.getMessage());
         }
 
-        // 值是实际元素用 Function.identity()
-//        Map<Integer,People> map1=peopleList.stream().collect(Collectors.toMap(People::getId,Function.identity()));
+        // 值是实际元素用 Function.identity(),但是id如果有重复的会报错
+        Map<Integer,People> map1=peopleList.stream().collect(Collectors.toMap(People::getId, Function.identity()));
 //        map1.forEach((k,v)->{ System.out.println("key="+k+"  value="+v); });
 
         // 解决相同键的冲突   当新旧键冲突时，取原来的键就行    BinaryOperator二元操作符
@@ -46,7 +46,7 @@ public class StreamMapTest {
         // 根据Id 分有那几个人
         Map<Integer, List<People>> collect = peopleList.stream().collect(Collectors.groupingBy(People::getId));
         collect.forEach((k, v) -> {
-            System.out.println("key=" + k + "  value=" + v.get(1).getName());
+            System.out.println("key=" + k + "  value=" + v.get(0).getName());
         });
         System.out.println("--------------------------------------------------------");
 

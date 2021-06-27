@@ -8,7 +8,7 @@ package String.medium;
  */
 public class P97_Interleaving_String {
     /*
-    二维数组版本  O m*n  S m*n
+    二维数组版本  O m*n  S m*n  82+76
      */
     public boolean isInterleave(String s1, String s2, String s3) {
         int n = s1.length(), m = s2.length(), t = s3.length();
@@ -24,17 +24,17 @@ public class P97_Interleaving_String {
                 } else if (i == 0) { // 其实是把第一行初始化
                     dp[i][j] = dp[i][j - 1] && (s2.charAt(j - 1) == s3.charAt(p));
                 } else if (j == 0) { // 第一列的初始化
-                    dp[i][j] = dp[j][i - 1] && (s1.charAt(i - 1) == s3.charAt(p));
+                    dp[i][j] = dp[i-1][j] && (s1.charAt(i - 1) == s3.charAt(p));
                 } else {
-                    dp[i][j] = (dp[j][i - 1] && (s1.charAt(i - 1) == s3.charAt(p))) ||
-                            (dp[j][i - 1] && (s1.charAt(i - 1) == s3.charAt(p)));
+                    dp[i][j] = (dp[i-1][j] && (s1.charAt(i - 1) == s3.charAt(p))) ||
+                            (dp[i][j - 1] && (s2.charAt(j - 1) == s3.charAt(p)));
                 }
             }
         }
         return dp[n][m];
     }
     /*
-    滚动数组 - 一维数组
+    滚动数组 - 一维数组   82+90
     每一行每一行确定
      */
     public boolean isInterleave2(String s1, String s2, String s3) {
@@ -62,7 +62,7 @@ public class P97_Interleaving_String {
     }
 
     /*
-     递归 DFS   2^n*m
+     递归 DFS   2^n*m  超时
      */
     public boolean isInterleave3(String s1, String s2, String s3) {
         if (s1.length() + s2.length() != s3.length()) {
@@ -86,7 +86,7 @@ public class P97_Interleaving_String {
     }
 
     /*
-    DFS 备忘录 递归
+    DFS 备忘录 递归  82+47
      */
     public boolean isInterleave4(String s1, String s2, String s3) {
         if (s1.length() + s2.length() != s3.length()) {
