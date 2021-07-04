@@ -7,10 +7,50 @@ package String.hard;
  */
 public class P10Regular_Expression_Matching {
     /*
-    DP
+    DP  注意 dp[0][0] 是一个空字符串,但是 p.chartAt(0) 是第一个字符    数组 默认为 false
+   100+50
      */
     public boolean isMatch(String s, String p) {
-        return false;
+        int m = s.length(), n = p.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        // 初始化第一行，第一列默认都为false,空字符串匹配不了任意
+        for (int col = 1; col < dp[0].length; col++) {
+            char p1 = p.charAt(col-1);
+            if (col>1){
+                if (p1=='*'){
+                    dp[0][col]=dp[0][col-2]; // * 前面字符使用0次
+                }else{
+                    dp[0][col]=false;
+                }
+            }else{
+                if (p1=='*'){
+                    dp[0][col]=true;
+                }
+            }
+        }
+        for (int row = 1; row < dp.length; row++) {
+            char s1 = s.charAt(row - 1);
+            for (int col = 1; col < dp[row].length; col++) {
+                char p1 = p.charAt(col - 1);
+                if (s1 == p1 || p1 == '.') {
+                    dp[row][col] = dp[row - 1][col - 1];
+                } else if (p1 == '*') {
+                    if (col > 1) {
+                        if (dp[row][col - 2] == true) {
+                            dp[row][col] = true; // *前面的字符出现0次
+                        }else{
+                            if (p.charAt(col-2)==s1 || p.charAt(col-2)=='.'){ // *前面字符和s字符一致或者 为.
+                                dp[row][col] = dp[row - 1][col];  // *前面的字符出现1次或多次
+                            }
+                        }
+                    } else {
+                        dp[row][col] = false; // 第一个 * 都不能匹配，这里else可以省略
+                    }
+                }
+            }
+        }
+        return dp[m][n];
     }
 
     /*
