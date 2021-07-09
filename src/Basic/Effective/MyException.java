@@ -1,4 +1,4 @@
-package Basic.effective;
+package Basic.Effective;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @since: 2021/06/10
  * @descripe:
  */
-public class Chapter1 {
+public class MyException {
 
     public static void main(String[] args) {
         try {
@@ -16,11 +16,11 @@ public class Chapter1 {
                 ArrayList list = null;
                 Object o = new Object();
                 list.equals(o);
-            } catch (Exception e) {
+            } catch (java.lang.Exception e) {
                 System.out.println("asd");
                 throw e;
             }
-        } catch (Exception e) {
+        } catch (java.lang.Exception e) {
             System.out.println("12w");
 //            throw e;
         }

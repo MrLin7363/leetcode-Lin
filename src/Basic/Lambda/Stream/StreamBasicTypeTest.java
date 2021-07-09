@@ -31,6 +31,21 @@ public class StreamBasicTypeTest {
         }
 
     }
+    /*
+    并行流分割
+     */
+    public void test() {
+        List<String> shipmentListExcelCOList = new ArrayList<>(29);
+        for (int i = 0; i < 29; i++) {
+            String shipmentListExcelCO = new String();
+            shipmentListExcelCOList.add(shipmentListExcelCO);
+        }
+        List<List<String>> listList = Stream.iterate(0, n -> n + 1)
+                .limit((29+10-1)/10).parallel() // size + maxSize -1  ==  29+10-1   这个就是计算切分次数
+                .map(index -> shipmentListExcelCOList.stream().skip(index * 10) // 每次的下标
+                        .limit(10).parallel().collect(Collectors.toList())).collect(Collectors.toList()); // 每次下标开始limit多少
+        System.out.println("A");
+    }
 
     private static void parallel(List<String> words){
         int[] shortWords=new int[12];
