@@ -1,4 +1,4 @@
-package Basic.jihe;
+package Basic.Collections;
 
 import java.util.Comparator;
 import java.util.NavigableSet;
