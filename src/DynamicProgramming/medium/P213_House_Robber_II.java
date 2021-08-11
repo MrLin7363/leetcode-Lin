@@ -8,20 +8,24 @@ package DynamicProgramming.medium;
 public class P213_House_Robber_II {
 
     public int rob(int[] nums) {
-        int n = nums.length;
-        int[] dp = new int[n];
-        if (n==1){
+        if (nums.length==1){
             return nums[0];
         }
-        if (n==2){
-            return 0;
+        if (nums.length==2){
+            return Math.max(nums[0],nums[1]);
         }
-        dp[0] = nums[0];
-        dp[1] = nums[1];
-        for (int i = 2; i < n-1; i++) {
-            dp[i] = Math.max(dp[i-1],dp[i-2]+nums[i]);
+        return Math.max(getIntervalMax(nums,0,nums.length-2),getIntervalMax(nums,1,nums.length-1));
+    }
+
+    private int getIntervalMax(int[]nums,int begin,int end){
+        int first = nums[begin];
+        int second = Math.max(first,nums[begin+1]);
+        for (int i = begin+2; i <= end; i++) {
+            int temp = second;
+            second = Math.max(second,first+nums[i]);
+            first=temp;
         }
-        return dp[n-1];
+        return second;
     }
 
 }
