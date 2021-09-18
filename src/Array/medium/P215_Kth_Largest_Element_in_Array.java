@@ -1,30 +1,49 @@
-package TenSortAlgorithm;
+package Array.medium;
 
 /**
  * @author: Junlin Chen
- * @Date: 2020/07/07 15:25
- * @Describe: 分治思想
- *  1、选取第一个元素作为中轴元素，每次把比中间元素小的元素排在中间元素的左边，
- *  大的在右边。这样下次排序就分开排序，有点分治的思想
- *  O nlogn
- *  O logn
+ * @Date: 2021/09/16 13:54
+ * @Describe: 快速排序 + 选择算法
  */
-public class QuickSort {
-    public static int[] quickSort(int[] arr,int left,int right){
-        if (left<right){
-            // 每次排一个节点
-            int mid=partition(arr,left,right);
-            // 分别左右再排
-            arr=quickSort(arr,left,mid-1);
-            arr=quickSort(arr,mid+1,right);
+public class P215_Kth_Largest_Element_in_Array {
+
+    /*
+    第k大的数 = 第 length-k个数
+    26  15
+     */
+    private static int res;
+    public static int findKthLargest(int[] nums, int k) {
+        if (k>nums.length){
+            return -1;
         }
+        quickSort(nums,0,nums.length-1,nums.length-k);
+        return nums[res];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findKthLargest(new int[]{3,2,1,5,6,4},2));
+    }
+
+    public static int[] quickSort(int[] arr,int left,int right,int k){
+            // 每次排一个节点
+            int mid=partition(arr,left,right,k);
+            if (mid==k){
+                res=mid;
+                return arr;
+            }
+            // 选择往一边排序
+            if (mid>k){
+                arr=quickSort(arr,left,mid-1,k);
+            }else{
+                arr=quickSort(arr,mid+1,right,k);
+            }
         return arr;
     }
     /*
     先选取一个中间元素，比如最左边的4，然后交换比4大和比4小的元素，
     最后i==j就是中间元素该放的中间位置
      */
-    private static int partition(int[]arr, int left, int right){
+    private static int partition(int[]arr, int left, int right,int k){
         int i=left;
         int j=right;
         //中轴元素,这里随机选择最左边元素
@@ -49,11 +68,4 @@ public class QuickSort {
         return i;
     }
 
-    public static void main(String[] args) {
-        int[] test=new int[]{4,1,7,2,9};
-        quickSort(test,0,test.length-1);
-        for (int i = 0; i < test.length; i++) {
-            System.out.println(test[i]);
-        }
-    }
 }
