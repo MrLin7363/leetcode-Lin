@@ -23,7 +23,7 @@ public class P25_Reverse_Nodes_in_kGroup {
                     return sentinel.next;
                 }
             }
-            ListNode next=tail.next;
+            ListNode next=tail.next; // 这里可以tail.next=null更好理解，不过下面的交换的时候就会把这个next改变的
             // 反转制定区间内的链表，并返回头尾节点
             ListNode[] reverse = myReverse(head, tail);
             head=reverse[0];

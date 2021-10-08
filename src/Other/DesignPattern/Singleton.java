@@ -6,17 +6,17 @@ package Other.DesignPattern;
  * @Describe: 单例模式
  */
 public class Singleton {
-    //懒汉不安全
+    //懒汉不安全 lazy  懒汉就是调用的时候才实例化
    /* public static Singleton instance;
     private Singleton(){}
     public static Singleton getInstance(){
         if (instance==null) instance=new Singleton();
         return instance;
     }*/
-//    懒汉安全，上面的加个同步即可
+//    懒汉安全 lazy，上面的加个同步即可
 //    public static synchronized Singleton getInstance(){
 
-    //饿汉式 不lazy,线程安全
+    //饿汉式 不lazy,线程安全   类加载时就初始化
     /*public static Singleton instance=new Singleton();
     private Singleton(){}
     public static Singleton getInstance(){
