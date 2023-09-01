@@ -1,7 +1,7 @@
 package A1000PLAN.动态规划.区间DP;
 
 /**
- * desc:
+ * desc: 极小化极大
  *
  * @author Lin
  * @since 2023/8/25

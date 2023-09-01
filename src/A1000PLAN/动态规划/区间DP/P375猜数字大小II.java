@@ -1,12 +1,8 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2023-2023. All rights reserved.
- */
-
 package A1000PLAN.动态规划.区间DP;
 
 /**
  * desc: 区间DP
- *
+ * 极小化极大
  * @author Lin
  * @since 2023/8/24
  **/
