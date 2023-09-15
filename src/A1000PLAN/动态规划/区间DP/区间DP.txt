@@ -1,0 +1,57 @@
+ 枚举模板: 从小到大「枚举区间长度」和「区间左端点」的常规做法,
+ 1.区间遍历是左斜线的方式填充数组，可以debug看，但是转化为一维需要第二种方式好理解
+ 2.也可以行倒序，列正序
+
+ P375
+    public int getMoneyAmount(int n) {
+        int[][] dp = new int[n + 2][n + 2]; //区间[l, r]的最优目标值
+        // 递推公式: 选择x点,l<=x<=j  有 cur=max(f[l][x-1],f[x+1][r])+x  最终f[l][r]=所有的x点的最小值
+        for (int len = 2; len <= n; len++) { // 区间长度 从小区间到大区间遍历
+            for (int l = 1; l + (len - 1) <= n; l++) { // 区间左端点,条件：右端点不越界   (l从1开始)
+                int j = l + (len - 1); // 右端点
+                int ans = Integer.MAX_VALUE;
+                // 选择区间内每个端点 k==j的时候会溢出，所以n+2避免
+                for (int k = l; k <= j; k++) {
+                    int max = Math.max(dp[l][k - 1], dp[k + 1][j]) + k;
+                    ans = Math.min(ans, max);
+                }
+                dp[l][j] = ans;
+            }
+        }
+        return dp[1][n];
+    }
+
+大区间状态依赖小区间状态
+P877
+    public boolean stoneGame(int[] piles) {
+        int n = piles.length;
+        int[][] dp = new int[n + 2][n + 2];// +1防止数组越界
+        for (int len = 1; len <= n; len++) { // 区间长度，因为[i,j]可以相同，所以len从1开始
+            for (int l = 1; l + (len - 1) <= n; l++) { // 区间左端点,条件：右端点不越界  (l从1开始)，保证r-1>0
+                int r = l + (len - 1);
+                int chooseLeft = piles[l - 1] - dp[l + 1][r];
+                int chooseRight = piles[r - 1] - dp[l][r - 1];
+                dp[l][r] = Math.max(chooseLeft, chooseRight);
+            }
+        }
+        return dp[1][n] > 0;
+    }
+
+
+  /*
+    二维DP方法
+     */
+    public boolean stoneGame2(int[] piles) {
+        int length = piles.length;
+        int[][] dp = new int[length][length];
+        for (int i = 0; i < length; i++) {
+            dp[i][i] = piles[i];
+        }
+        // 行倒序，列正序； 因为依赖下面和左边
+        for (int i = length - 2; i >= 0; i--) {
+            for (int j = i + 1; j < length; j++) {
+                dp[i][j] = Math.max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
+            }
+        }
+        return dp[0][length - 1] > 0;
+    }

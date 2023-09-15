@@ -1,0 +1,57 @@
+这个推荐使用 int[26] 哈希数组正常模板代替,这个好记
+双map模板:适合判断两个字符串的关系
+map: need,window
+valid
+while(right<s.length()){
+    // 窗口更新判断valid等
+
+    // 窗口收缩while(right - left + 1 >= s1.length())
+    {
+    // 符合条件 valid==size 或者超过了规定子串的长度right - left + 1 >= s1.length()
+    // 收缩窗口，更新条件
+    }
+    right++;
+}
+
+第二个模板：适用于需要用 [哈希表] 记录的情况
+类似题目诸如 567.字符串的排列、438.找到字符串中所有字母异位词  76
+class Solution {
+    public String slidingWindow(String s, String t) {
+        //创建两个哈希表，分别记录 [需要的] 和 [加入的]
+        Map<Character, Integer> need = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>(); // 当前加入的符合条件的元素
+
+        //创建 [双指针] 和 [有效数量]
+        int left = 0, right = 0;
+        int valid = 0;
+
+        //外层循环，供右指针遍历
+        while(right < s.length()){
+            //创建临时 c 字符，是移入 窗口 内的字符
+            char c = s.charAt(right);
+
+            //进行窗口一系列逻辑更新
+            ...
+
+            //判断左指针是否要右移即窗口收缩：有效数量足够满足条件
+             /*  可能是规定的窗口大小超出了，可能是有效值数量达成了
+             1.  while(valid == need.size())
+             2.  while(right - left + 1 >= s1.length())
+             */
+             // 判断左侧窗口是否要收缩
+            while(windows need shrink){
+                // d 是要移除窗口的字符
+                char d = s.charAt(left);
+                // 左移窗口
+                left++;
+
+                //进行窗口一系列逻辑更新
+                ...
+            }
+
+            //右指针右移
+            right++;
+        }
+    }
+}
+

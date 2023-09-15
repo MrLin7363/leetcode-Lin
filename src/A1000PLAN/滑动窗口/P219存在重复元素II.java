@@ -1,7 +1,3 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2023-2023. All rights reserved.
- */
-
 package A1000PLAN.滑动窗口;
 
 import java.util.HashSet;

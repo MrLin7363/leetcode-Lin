@@ -1,0 +1,51 @@
+https://leetcode.cn/problems/subarray-product-less-than-k/solutions/1320871/jian-dan-yi-dong-xiang-xi-zhu-jie-shuang-jvy3/
+    常规模板：适合单个字符串或数组中求
+    1.定义左右指针
+    2.指针起始位置为0；用右指针遍历整个数组，每次移动一次；
+    3.移动过程中积累从左指针到右指针的乘积/和等条件
+    4.如果不符合条件，则左指针右移，直到符合条件
+    5.记录符合条件
+    6.右指针右移
+while (r < n) {
+            // 计算当前乘积等(右指针)
+
+            // 不符合条件，右移左指针 while/if 收缩窗口
+
+            // 符合条件->记录结果等
+
+            // 右移右指针
+        }
+
+第一个模板：适用于需要使用 [变量/数组] 记录的情况
+类似题目如 1004.最大连续1的个数 III   P713乘积小于K的子数组
+
+class Solution {
+    public int slidingWindow(int[] nums, int k) {
+        //数组/字符串长度
+        int n = nums.length;
+        //双指针，表示当前遍历的区间[left, right]，闭区间
+        int left = 0, right = 0;
+        //定义变量统计 子数组/子区间 是否有效
+        int sum = 0;
+        //定义变量动态保存最大 求和/计数
+        int res = 0;
+
+        //右指针遍历到数组尾
+        while (right < n) {
+            //增加当前右指针对应的数值
+            sum += nums[right];
+            //当在该区间内 sum 超出定义范围
+            while (sum > k) {
+                //先将左指针指向的数值减去
+                sum -= nums[left];
+                //左指针右移
+                left++;
+            }
+            //到 while 结束时，我们找到了一个符合题意要求的 子数组/子串
+            res = Math.max(res, right - left + 1);
+            //移动右指针，去探索下一个区间
+            right++;
+        }
+        return res;
+    }
+}
