@@ -1,0 +1,32 @@
+1.首尾双指针模板
+    public int[] twoSum2(int[] numbers, int target) {
+        int left = 0, right = numbers.length - 1;
+        // 与二分法不一样的记住,这里可以省去1个元素得情况
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+            if (sum == target) {
+                return new int[]{left + 1, right + 1};
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return new int[0]; // 返回空数组代表无结果
+    }
+
+2.快慢指针:找中间节点
+
+3.快慢指针:找环
+链表P141+142
+
+Floyd 判圈算法：
+数组287(数组得满足只有一个重复数，1 <= nums[i] <= n等)：
+快慢指针找到环后,slow回到起点，slow+fast再同步移动，直到相遇就是环起始点
+我们对 nums数组建图，每个位置 i 连一条 i→nums[i] 的边。由于存在的重复的数字 target，因此 target这个位置一定有起码两条指向它的边，
+因此整张图一定存在环，且我们要找到的 target 就是这个环的入口
+
+
+4. left+right技巧,左闭右闭：所有元素都要考虑得按下面这个来
+right=n-1 -> while(left<=right)
+right=n -> while(left<right)
