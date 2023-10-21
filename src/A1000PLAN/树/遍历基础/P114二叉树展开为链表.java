@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * desc:
  *
- * @author c30021507
+ * @author 
  * @since 2023/10/11
  **/
 public class P114二叉树展开为链表 {
