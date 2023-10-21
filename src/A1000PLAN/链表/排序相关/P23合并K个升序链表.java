@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * 2.归并合并-推荐
  * 3.堆-推荐：存每个节点值，依次加入一个新list
  *
- * @author c30021507
+ * @author 
  * @since 2023/9/27
  **/
 public class P23合并K个升序链表 {

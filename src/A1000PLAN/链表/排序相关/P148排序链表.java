@@ -5,7 +5,7 @@ import Construct.ListNode;
 /**
  * desc:
  *
- * @author c30021507
+ * @author 
  * @since 2023/9/26
  **/
 public class P148排序链表 {

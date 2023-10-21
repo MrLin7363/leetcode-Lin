@@ -1,7 +1,3 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2023-2023. All rights reserved.
- */
-
 package A1000PLAN.链表.快慢指针;
 
 import Construct.ListNode;
@@ -9,7 +5,7 @@ import Construct.ListNode;
 /**
  * desc:
  *
- * @author c30021507
+ * @author 
  * @since 2023/9/28
  **/
 public class P876链表的中间结点 {
