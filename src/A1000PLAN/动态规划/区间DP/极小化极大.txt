@@ -1,0 +1,27 @@
+https://leetcode.cn/problems/predict-the-winner/solutions/395940/yu-ce-ying-jia-by-leetcode-solution/
+首先，这题有一个标签是极小化极大（Minimax），带这个标签的题目并不多，但通常有一个范式：
+
+A，B轮流进行某种决策，且决策间是相互竞争关系。假定A先进行决策。
+A，B都符合理性人假设。更确切地说，每一次决策都会选出当前最优的方案（而不会在意已经做过的决策）。
+1和2共同反映了极小化极大（Minimax）的定义，即此消彼长——第一轮A决策极大化A自己的收益，同时间接极小化了B的收益；第二轮B则相反，如此往复；
+2间接确保了最优子结构的存在。仔细思考会发现这里面有一件事是重复进行的，那就是决策本身——决策者只有两个可能的决策，并且他会选择让自己优势最大化的那个
+
+因此，方法1中过度强调的轮次（turn）的概念，其实是没有必要的。决策本身和轮次完全无关。A，B就是要从头尾两种决策中选出自己分数最大的一种，仅此而已
+令play(lo, hi)表示当前玩家能从子数组[lo, hi]中“净胜对手多少分”——如返回0表示平局，返回-2表示净输2分。则这个play返回的净胜分值由两部分组成：
+
+先手取得的元素v：可能是nums[lo]或nums[hi]
+余下的数组留给对手后，对手的净胜分值s
+v - s就是当前玩家实际的“净胜分值“，而计算s本身又是一次规模更小的play调用
+
+class Solution {
+    public boolean PredictTheWinner(int[] nums) {
+        return play(nums, 0, nums.length - 1) >= 0;
+    }
+
+    private int play(int[] nums, int lo, int hi) {
+        if (lo > hi) return 0;
+        int planA = nums[lo] - play(nums, lo + 1, hi);
+        int planB = nums[hi] - play(nums, lo, hi - 1);
+        return Math.max(planA, planB);
+    }
+}
