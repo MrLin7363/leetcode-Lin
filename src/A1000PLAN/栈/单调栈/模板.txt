@@ -1,0 +1,15 @@
+
+Deque<Integer> stack = new ArrayDeque<>();
+     int n = temperatures.length;
+     int[] ans = new int[n];
+     // for遍历
+     for (int i = 0; i < n; i++) {
+         // 栈非空，符合出栈条件，出栈
+         while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
+             ans[stack.peek()] = i - stack.peek();
+             stack.pop();
+         }
+         // 入栈
+         stack.push(i);
+     }
+     return ans;
