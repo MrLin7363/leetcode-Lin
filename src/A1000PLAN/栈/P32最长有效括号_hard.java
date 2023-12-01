@@ -11,8 +11,8 @@ import java.util.Deque;
  **/
 public class P32最长有效括号_hard {
     /*
-3.无额外空间 - 推荐  - 平衡法
-*/
+    3.无额外空间 - 推荐  - 平衡法
+    */
     public int longestValidParentheses1(String s) {
         int max = 0;
         int left = 0;
