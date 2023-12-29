@@ -1,5 +1,7 @@
 package A1000PLAN.动态规划.子序列;
 
+import java.util.Arrays;
+
 /**
  * @author: Junlin Chen
  * @Date: 2021/10/04 16:31
@@ -14,16 +16,14 @@ public class P300最长递增子序列 {
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];
-        dp[0] = 1;
+        Arrays.fill(dp, 1);
         for (int i = 1; i < n; i++) {
-            // 倒序也行
             for (int j = i - 1; j >= 0; j--) {
                 if (nums[i] > nums[j]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
         }
-        // 这里求最大可以放到上面
         int ans = 0;
         for (int i = 0; i < n; i++) {
             ans = Math.max(ans, dp[i]);
@@ -34,7 +34,7 @@ public class P300最长递增子序列 {
     public static void main(String[] args) {
         new P300最长递增子序列().findLengthOfLCIS(new int[] {1,3,5,4,7});
         new P300最长递增子序列().findLengthOfLCIS(new int[] {1,3,5,4,2,3,4,5});
-        new P300最长递增子序列().lengthOfLIS(new int[] {0});
+        new P300最长递增子序列().lengthOfLIS(new int[] {20,100,10,12,5,13});
     }
 
     // P674 最长连续递增序列
