@@ -13,7 +13,7 @@ import java.util.Map;
  **/
 public class P187重复的DNA序列 {
     /*
-    找到字符串中10长度的相同的字符串
+    找到字符串中10长度的相同的字符串(出现超过1次)
     滑动窗口+哈希表
      */
     public List<String> findRepeatedDnaSequences(String s) {
@@ -23,6 +23,7 @@ public class P187重复的DNA序列 {
         for (int i = 0; i + 10 <= n; i++) {
             String cur = s.substring(i, i + 10);
             int count = map.getOrDefault(cur, 0);
+            // 该字符串出现过了,不需要重复添加，所以>1情况不用再添加
             if (count == 1) {
                 ans.add(cur);
             }
