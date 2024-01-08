@@ -1,6 +1,6 @@
 package TenSortAlgorithm.path;
 
-import A2023.路径算法.P743网络延迟时间Spfa;
+import A1000PLAN.路径算法.P743网络延迟时间Spfa;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
